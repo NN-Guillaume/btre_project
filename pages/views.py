@@ -2,6 +2,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models.expressions import OrderBy
 from django.http import HttpResponse
 from django.shortcuts import render
+from listings.choices import price_choices, bedroom_choices, state_choices
 
 from listings.models import Listing
 from realtors.models import Realtor
@@ -15,7 +16,10 @@ def index(request):
     paged_listings = paginator.get_page(page)
 
     context = {
-        'listings': listings
+        'listings': listings,
+        'state_choices': state_choices,
+        'bedroom_choices': bedroom_choices,
+        'price_choices': price_choices,
     }
 
     return render(request, 'pages/index.html', context)
