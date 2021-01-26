@@ -14,7 +14,7 @@ from pathlib import Path, os
 
 from django.conf.global_settings import STATICFILES_DIRS
 
-import dotenv
+from dotenv import load_dotenv
 
 # Add .env variables anywhere before SECRET_KEY
 dotenv_file = os.path.join(BASE_DIR, ".env")
@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
