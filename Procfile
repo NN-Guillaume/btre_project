@@ -1,1 +1,1 @@
-web: gunicorn btre_project.wsgi:application app:server
+gunicorn hello:app --preload
