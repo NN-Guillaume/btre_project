@@ -1,1 +1,1 @@
-web: gunicorn btfreeestate.wsgi
+web: gunicorn btre_project.wsgi:application app:server
